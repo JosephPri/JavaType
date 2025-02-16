@@ -3,10 +3,11 @@ package model;
 import model.TypingTest;
 
 import java.util.ArrayList;
+import java.util.List;
 
-// represents a history of typing 
+// represents a history of typing tests
 public class TypingTestHistory {
-    ArrayList<TypingTest> history; // ArrayList to store typing test objects
+    List<TypingTest> history; // ArrayList to store typing test objects
 
     // MODIFIES: this
     // EFFECTS: instantiates an empty typing test history
