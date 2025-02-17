@@ -107,13 +107,16 @@ public class TypingTest {
     // EFFECTS: updates test content and resets accuracy
     public void setTestContent(String testContent) {
         if (testContent.equals("cpsc210 syllabus")) {
+            contentType = "cpsc210 syllabus";
             hardText = SHORTENED_SYLLABUS;
             standardText = SHORTENED_SYLLABUS.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
         } else if (testContent.equals("random words")) {
+            contentType = "random words";
             String randomized = randomize(RANDOM_WORDS);
             hardText = randomized;
             standardText = randomized.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
         } else {
+            contentType = "custom";
             hardText = testContent;
             standardText = testContent.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
         }
@@ -140,7 +143,7 @@ public class TypingTest {
 
     // EFFECTS: returns type of test content
     public String getContentType() {
-        return null; //stub
+        return contentType;
     }
 
     // REQUIRES: userInput != null
