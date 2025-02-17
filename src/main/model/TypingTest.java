@@ -13,6 +13,8 @@ public class TypingTest {
     private String standardText;                    // modified given testContent without capitalization or punctuation
     private String hardText;                        // unmodified given testContent
 
+    private String contentType;                     // stores type of test content ("random words"/"cpsc210 syllabus"/"custom")
+
     private static final String SHORTENED_SYLLABUS = "Design, development, and analysis of robust software "
                                                  + "components. Topics such as software design, computational "
                                                  + "models, data structures, debugging, and testing. "
@@ -136,6 +138,11 @@ public class TypingTest {
         accuracy = -1;
     }
 
+    // EFFECTS: returns type of test content
+    public String getContentType() {
+        return null; //stub
+    }
+
     // REQUIRES: userInput != null
     // MODIFIES: this
     // EFFECTS: returns wpm;
@@ -208,7 +215,6 @@ public class TypingTest {
         String newString = "";
 
         for (int i = 0; i < words.length; i++) {
-            // maybe add system so no duplicates
             int randomNum = (int)(Math.random() * (words.length));
             newString += (String)words[randomNum] + " ";
         }
