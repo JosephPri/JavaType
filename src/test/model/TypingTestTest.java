@@ -23,6 +23,7 @@ public class TypingTestTest {
         assertEquals("this is a test", standardTypingTest.getUserInput());
         assertEquals(100, standardTypingTest.getAccuracy());
         assertEquals(4, standardTypingTest.getWPM());
+        assertEquals("custom", standardTypingTest.getContentType());
 
         assertEquals("hard", hardTypingTest.getDifficulty());
         assertEquals(60, hardTypingTest.getDuration());
@@ -30,6 +31,7 @@ public class TypingTestTest {
         assertEquals("this is a test", hardTypingTest.getUserInput());
         assertEquals(50, hardTypingTest.getAccuracy());
         assertEquals(4, hardTypingTest.getWPM());
+        assertEquals("custom", hardTypingTest.getContentType());
     }
 
     @Test
