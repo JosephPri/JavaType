@@ -13,17 +13,17 @@ public class TypingTestApp {
     private Scanner input;              // general input given by user 
 
     // EFFECTS: runs the typing test application
-    public TypingTestApp() throws InterruptedException {
+    public TypingTestApp() {
     }
     
     // MODIFIES: this
     // EFFECTS: processes user input
-    private void runTypingTestApp() throws InterruptedException {
+    private void runTypingTestApp() {
     }
 
     // MODIFIES: this
     // EFFECTS: processes user command
-    private void processCommand(String command) throws InterruptedException {
+    private void processCommand(String command) {
     }
 
     // MODIFIES: this
@@ -37,7 +37,7 @@ public class TypingTestApp {
     
     // MODIFIES: this
     // EFFECTS: lets user take a typing test
-    private void createNewTest() throws InterruptedException {
+    private void createNewTest() {
     }
 
     private String processCommand2String(String prompt, String option1, String option2) {
