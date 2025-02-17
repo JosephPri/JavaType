@@ -40,10 +40,12 @@ public class TypingTestApp {
     private void createNewTest() {
     }
 
+    // EFFECTS: returns user command once the command is a valid option
     private String processCommand2String(String prompt, String option1, String option2) {
         return null; //stub
     }
 
+    // EFFECTS: returns user duration input once the input is greater than 0 and a number
     private int processCommandDuration() {
         return -1; //stub
     }
