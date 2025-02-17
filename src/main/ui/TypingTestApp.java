@@ -14,49 +14,165 @@ public class TypingTestApp {
 
     // EFFECTS: runs the typing test application
     public TypingTestApp() {
+        runTypingTestApp();
     }
     
     // MODIFIES: this
     // EFFECTS: processes user input
     private void runTypingTestApp() {
+        boolean keepGoing = true;
+        String command = null;
+
+        init();
+
+        while (keepGoing) {
+            displayMenu();
+            command = input.next();
+            command = command.toLowerCase();
+        
+            if (command.equals("q")) {
+                keepGoing = false;
+            } else {
+                processCommand(command);
+            }
+        }
+
+        System.out.println("App closed");
     }
 
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
+        if (command.equals("t")) {
+            createNewTest();
+        } else if (command.equals("h")) {
+            openHistory();
+        } else {
+            System.out.println("Selection not valid");
+        }
     }
 
     // MODIFIES: this
     // EFFECTS: initializes objects
     private void init() {
+        input = new Scanner(System.in);
+        input.useDelimiter("\r?\n|\r");
+
+        history = new TypingTestHistory();
     }
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
+        System.out.println("\nSelect from:");
+        System.out.println("\tt -> take a new test");
+        System.out.println("\th -> look at test history");
+        System.out.println("\tq -> quit");
     }
     
     // MODIFIES: this
     // EFFECTS: lets user take a typing test
     private void createNewTest() {
+        String difficulty = processCommand2String("Enter difficulty of test (standard/hard): ", "standard", "hard");
+
+        int duration = processCommandDuration();
+        
+        System.out.print("Enter test content type (random words/cpsc210 syllabus/custom): ");
+        String testContent = input.next();
+        while (!testContent.equals("random words") 
+                && !testContent.equals("cpsc210 syllabus") 
+                && !testContent.equals("custom")) {
+            System.out.println("Selection not valid!");
+            System.out.println("Enter test content type (random words/cpsc210 syllabus/custom): ");
+            testContent = input.next();
+        }
+
+        if (testContent.equals("custom")) {
+            System.out.print("Enter custom text content: ");
+            testContent = input.next();
+        }
+        TypingTest test = new TypingTest(difficulty, duration, testContent, null);
+
+        takeTest(test);
+
+        String retake = processCommand2String("Would you like to retake the same test? (yes/no): ", "yes", "no");
+        if (retake.equals("yes")) {
+            
+            TypingTest duplicateTest = new TypingTest(difficulty, duration, test.getTestContent(), null);
+            takeTest(duplicateTest);
+        }
     }
 
     // EFFECTS: returns user command once the command is a valid option
     private String processCommand2String(String prompt, String option1, String option2) {
-        return null; //stub
+        System.out.print(prompt);
+        String object = input.next().toLowerCase();
+        while (!object.equals(option1) && !object.equals(option2)) {
+            System.out.println("Selection not valid!");
+            System.out.println(prompt);
+            object = input.next().toLowerCase();
+        }
+        return object;
     }
 
     // EFFECTS: returns user duration input once the input is greater than 0 and a number
     private int processCommandDuration() {
-        return -1; //stub
+        int duration;
+        System.out.print("Enter test duration (seconds): ");
+        while (true) {
+            if (input.hasNextInt()) {
+                duration = input.nextInt();
+                if (duration > 0) {
+                    break;
+                }
+            } else {
+                input.next();
+            }
+            System.out.println("Selection not valid!");
+            System.out.print("Enter test duration (seconds): ");
+        }
+        return duration;
     }
 
     // MODIFIES: this
-    // EFFECTS: allows user to view
+    // EFFECTS: allows user to view history
     private void openHistory() {
+        if (history.getHistory().size() == 0) {
+            System.out.println("You have not yet taken any tests!");
+            return;
+        }
+
+        System.out.println("Overall Stats:");
+        System.out.println("Average WPM: " + history.getAverageWPM());
+        System.out.println("Average Accuracy: " + history.getAverageAccuracy() + "\n");
+
+        List<TypingTest> historyList = history.getHistory();
+        for (int i = 0; i < historyList.size(); i++) {
+            TypingTest currentTest = historyList.get(i);
+            System.out.println("Test #" + (i + 1) + " Statistics:");
+            System.out.println("Difficulty: " + currentTest.getDifficulty());
+            System.out.println("Duration: " + currentTest.getDuration());
+            System.out.println("Content: " + currentTest.getContentType());
+            System.out.println("WPM: " + currentTest.getWPM());
+            System.out.println("Accuracy: " + currentTest.getAccuracy() + "%\n");
+        }
     }
 
     // MODIFIES: test
     // EFFECTS: runs the given test and saves it to the history
     private void takeTest(TypingTest test) {
+        System.out.println("Press ENTER when you are ready for the test to start.");
+        input.next();
+        
+        System.out.println(test.getTestContent() + "\n");
+
+        String userInput = input.next();
+
+        test.setUserInput(userInput);
+
+        System.out.println("Here are your results!");
+        System.out.println("WPM: " + test.getWPM());
+        System.out.println("Accuracy: " + test.getAccuracy() + "%");
+
+        history.addTest(test);
     }
 }
