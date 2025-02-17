@@ -15,4 +15,7 @@ I would like to design a typing test application in Java. It will be able to cal
 - As a user, I want to be able to see my overall average WPM and accuracy for my test history
 - As a user, I want to be able to view each of my previous tests
 
-
+## Citations
+- https://github.students.cs.ubc.ca/CPSC210/TellerApp - Followed basic UI code format
+- https://stackoverflow.com/questions/18830813/how-can-i-remove-punctuation-from-input-text-in-java - How to remove punctuation from a String
+- https://www.w3schools.com/java/java_howto_random_number.asp How to generate a random number
