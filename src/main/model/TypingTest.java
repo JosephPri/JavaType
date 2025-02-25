@@ -146,7 +146,8 @@ public class TypingTest {
         return contentType;
     }
 
-    public void setContentType() {
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
     // REQUIRES: userInput != null
