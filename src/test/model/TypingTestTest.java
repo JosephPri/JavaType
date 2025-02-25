@@ -118,6 +118,13 @@ public class TypingTestTest {
         assertEquals(9, hardTypingTest.getWPM());
     }
 
+
+    @Test
+    void testSetContentType() {
+        standardTypingTest.setContentType("random words");
+        assertEquals("random words", standardTypingTest.getContentType());
+    }
+    
     @Test
     void testNoWordsTyped() {
         standardTypingTest.setUserInput("");
