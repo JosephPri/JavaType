@@ -146,6 +146,9 @@ public class TypingTest {
         return contentType;
     }
 
+    public void setContentType() {
+    }
+
     // REQUIRES: userInput != null
     // MODIFIES: this
     // EFFECTS: returns wpm;
