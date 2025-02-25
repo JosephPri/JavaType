@@ -98,6 +98,7 @@ public class TypingTestApp {
         if (retake.equals("yes")) {
             
             TypingTest duplicateTest = new TypingTest(difficulty, duration, test.getTestContent(), null);
+            duplicateTest.setContentType(test.getContentType());            
             takeTest(duplicateTest);
         }
     }
