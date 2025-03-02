@@ -7,6 +7,7 @@ import persistence.JsonWriter;
 
 import java.util.Scanner;
 import java.util.List;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ public class TypingTestApp {
     private JsonReader jsonReader;                                              // object to read json files
 
     // EFFECTS: runs the typing test application
-    public TypingTestApp() {
+    public TypingTestApp() throws FileNotFoundException {
         runTypingTestApp();
     }
     
@@ -55,7 +56,7 @@ public class TypingTestApp {
             openHistory();
         } else if (command.equals("l")) {
             loadHistory();
-        }else if (command.equals("s")) {
+        } else if (command.equals("s")) {
             saveHistory();
         } else {
             System.out.println("Selection not valid");
@@ -87,7 +88,7 @@ public class TypingTestApp {
     private void createNewTest() {
         String difficulty = processCommand2String("Enter difficulty of test (standard/hard): ", "standard", "hard");
 
-        int duration = processCommandDuration();
+        int duration = processCommand1Int();
         
         System.out.print("Enter test content type (random words/cpsc210 syllabus/custom): ");
         String testContent = input.next();
@@ -95,7 +96,7 @@ public class TypingTestApp {
                 && !testContent.equals("cpsc210 syllabus") 
                 && !testContent.equals("custom")) {
             System.out.println("Selection not valid!");
-            System.out.println("Enter test content type (random words/cpsc210 syllabus/custom): ");
+            System.out.print("Enter test content type (random words/cpsc210 syllabus/custom): ");
             testContent = input.next();
         }
 
@@ -109,7 +110,8 @@ public class TypingTestApp {
 
         String retake = processCommand2String("Would you like to retake the same test? (yes/no): ", "yes", "no");
         if (retake.equals("yes")) {
-            TypingTest duplicateTest = new TypingTest(difficulty, duration, test.getContentType(), null);
+            TypingTest duplicateTest = new TypingTest(test.getDifficulty(), test.getDuration(), test.getContentType(), 
+                                            null);
             if (test.getContentType().equals("custom")) {
                 duplicateTest.setTestContent(test.getHardText());
             }
@@ -124,14 +126,14 @@ public class TypingTestApp {
         String object = input.next().toLowerCase();
         while (!object.equals(option1) && !object.equals(option2)) {
             System.out.println("Selection not valid!");
-            System.out.println(prompt);
+            System.out.print(prompt);
             object = input.next().toLowerCase();
         }
         return object;
     }
 
     // EFFECTS: returns user duration input once the input is greater than 0 and a number
-    private int processCommandDuration() {
+    private int processCommand1Int() {
         int duration;
         System.out.print("Enter test duration (seconds): ");
         while (true) {
@@ -217,12 +219,24 @@ public class TypingTestApp {
 
     // EFFECTS: saves history to file
     private void loadHistory() {
-
+        try {
+            history = jsonReader.read();
+            System.out.println("Loaded typing test history from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
     // MODIFIES: this
     // EFFECTS: loads history from file
     private void saveHistory() {
-
+        try {
+            jsonWriter.open();
+            jsonWriter.write(history);
+            jsonWriter.close();
+            System.out.println("Saved typing test history to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
 }
