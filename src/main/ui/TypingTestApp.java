@@ -172,11 +172,7 @@ public class TypingTestApp {
         for (int i = 0; i < historyList.size(); i++) {
             TypingTest currentTest = historyList.get(i);
             System.out.println("Test #" + (i + 1) + " Statistics:");
-            System.out.println("Difficulty: " + currentTest.getDifficulty());
-            System.out.println("Duration: " + currentTest.getDuration());
-            System.out.println("Content: " + currentTest.getContentType());
-            System.out.println("WPM: " + currentTest.getWPM());
-            System.out.println("Accuracy: " + currentTest.getAccuracy() + "%\n");
+            printTestResults(currentTest);
         }
     }
 
@@ -203,8 +199,7 @@ public class TypingTestApp {
         test.setUserInput(userInput);
 
         System.out.println("Here are your results!");
-        System.out.println("WPM: " + test.getWPM());
-        System.out.println("Accuracy: " + test.getAccuracy() + "%");
+        printTestResults(test);
 
         history.addTest(test);
     }
@@ -246,6 +241,14 @@ public class TypingTestApp {
     }
 
     // EFFECTS: prints difficulty, duration, content, wpm, accuracy and seed if content type is random words
-    private void printTestResults() {
+    private void printTestResults(TypingTest test) {
+        System.out.println("Difficulty: " + test.getDifficulty());
+        System.out.println("Duration: " + test.getDuration() + " seconds");
+        System.out.println("Content: " + test.getContentType());
+        if (test.getContentType().equals("random words")) {
+            System.out.println("Seed: " + test.getSeed());
+        }
+        System.out.println("WPM: " + test.getWPM()); 
+        System.out.println("Accuracy: " + test.getAccuracy() + "%\n");
     }
 }
