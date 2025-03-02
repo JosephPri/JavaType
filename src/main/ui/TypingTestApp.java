@@ -244,4 +244,8 @@ public class TypingTestApp {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
+
+    // EFFECTS: prints difficulty, duration, content, wpm, accuracy and seed if content type is random words
+    private void printTestResults() {
+    }
 }
