@@ -108,6 +108,11 @@ public class TypingTestApp {
 
         takeTest(test);
 
+        promptRetake(test);
+    }
+
+    // EFFECTS: prompts user on whether they want to retake the same test and runs if so
+    private void promptRetake(TypingTest test) {
         String retake = processCommand2String("Would you like to retake the same test? (yes/no): ", "yes", "no");
         if (retake.equals("yes")) {
             TypingTest duplicateTest = new TypingTest(test.getDifficulty(), test.getDuration(), test.getContentType(), 
@@ -118,10 +123,6 @@ public class TypingTestApp {
             duplicateTest.setSeed(test.getSeed());    
             takeTest(duplicateTest);
         }
-    }
-
-    // EFFECTS: prompts user on whether they want to retake the same test and runs if so
-    private void promptRetake(TypingTest test) {
     }
 
     // EFFECTS: returns user command once the command is a valid option
