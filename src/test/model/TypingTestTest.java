@@ -25,6 +25,7 @@ public class TypingTestTest {
         assertEquals(4, standardTypingTest.getWPM());
         assertEquals("custom", standardTypingTest.getContentType());
         assertTrue(standardTypingTest.getSeed() <= 10000);
+        assertEquals("This is a test.", standardTypingTest.getHardText());
 
         assertEquals("hard", hardTypingTest.getDifficulty());
         assertEquals(60, hardTypingTest.getDuration());
@@ -34,6 +35,7 @@ public class TypingTestTest {
         assertEquals(4, hardTypingTest.getWPM());
         assertEquals("custom", hardTypingTest.getContentType());
         assertTrue(standardTypingTest.getSeed() <= 10000);
+        assertEquals("This is a test.", hardTypingTest.getHardText());
     }
 
     @Test
@@ -167,7 +169,10 @@ public class TypingTestTest {
         assertEquals("", hardTypingTest.getUserInput());
         assertEquals(0, hardTypingTest.getAccuracy());
         assertEquals(0, hardTypingTest.getWPM());
+    }
 
+    @Test
+    void testNoWordsTyped2() {
         standardTypingTest.setUserInput(null);
 
         assertEquals("standard", standardTypingTest.getDifficulty());
@@ -297,6 +302,10 @@ public class TypingTestTest {
         standardTypingTest.setDuration(12);
         standardTypingTest.setDuration(45);
 
+        multipleMethodsTestHelper();
+    }
+
+    void multipleMethodsTestHelper() {
         assertEquals("hard", standardTypingTest.getDifficulty());
         assertEquals(45, standardTypingTest.getDuration());
         assertTrue(standardTypingTest.getTestContent().length() == 1121);
