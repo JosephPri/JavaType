@@ -135,6 +135,12 @@ public class TypingTestTest {
         String after = standardTypingTest.getTestContent();
         assertNotEquals(before, after);
 
+        standardTypingTest.setContentType("cpsc210 syllabus");
+        before = standardTypingTest.getTestContent();
+        standardTypingTest.setSeed(50);
+        after = standardTypingTest.getTestContent();
+        assertEquals(before, after);
+
         standardTypingTest.setContentType("random words");
         hardTypingTest.setContentType("random words");
         standardTypingTest.setSeed(50);
