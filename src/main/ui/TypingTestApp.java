@@ -120,6 +120,10 @@ public class TypingTestApp {
         }
     }
 
+    // EFFECTS: prompts user on whether they want to retake the same test and runs if so
+    private void promptRetake(TypingTest test) {
+    }
+
     // EFFECTS: returns user command once the command is a valid option
     private String processCommand2String(String prompt, String option1, String option2) {
         System.out.print(prompt);
