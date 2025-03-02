@@ -176,6 +176,10 @@ public class TypingTest {
         accuracy = -1;
     }
 
+    public String getHardText() {
+        return hardText;
+    }
+
     // REQUIRES: userInput != null
     // MODIFIES: this
     // EFFECTS: returns wpm;
