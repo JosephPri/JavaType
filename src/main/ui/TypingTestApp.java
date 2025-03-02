@@ -95,9 +95,8 @@ public class TypingTestApp {
 
         String retake = processCommand2String("Would you like to retake the same test? (yes/no): ", "yes", "no");
         if (retake.equals("yes")) {
-            
-            TypingTest duplicateTest = new TypingTest(difficulty, duration, test.getTestContent(), null);
-            duplicateTest.setContentType(test.getContentType());            
+            TypingTest duplicateTest = new TypingTest(difficulty, duration, test.getContentType(), null);
+            duplicateTest.setSeed(test.getSeed());    
             takeTest(duplicateTest);
         }
     }
