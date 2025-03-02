@@ -165,7 +165,17 @@ public class TypingTestApp {
         
         System.out.println(test.getTestContent() + "\n");
 
-        String userInput = input.next();
+        String userInput = "";
+        Thread timerThread = new Thread(() -> {
+            startCountdown(test.getDuration());
+        });
+        timerThread.start();
+
+        while (timerThread.isAlive()) {
+            if (input.hasNextLine()) {
+                userInput = input.nextLine();
+            }
+        }
 
         test.setUserInput(userInput);
 
@@ -178,5 +188,14 @@ public class TypingTestApp {
 
     // EFFECTS: starts the countdown timer
     private void startCountdown(int duration) {
+        for (int i = duration; i >= 0; i--) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+        System.out.println("\n\nTime's up! Press ENTER to see your results.");
     }
 }
