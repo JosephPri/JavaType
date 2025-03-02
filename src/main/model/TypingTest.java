@@ -68,6 +68,7 @@ public class TypingTest {
     //          else if testContent.equals("random words"), testContent will be a list of random words;
     //          if difficulty.equals("standard") testContent will be made all lowercase and punctuation will be removed
     public TypingTest(String difficulty, int duration, String testContent, String userInput) {
+        seed = (int) (Math.random() * 10000);
         setDifficulty(difficulty);
         setDuration(duration);
         setTestContent(testContent);
@@ -116,7 +117,6 @@ public class TypingTest {
             standardText = SHORTENED_SYLLABUS.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
         } else if (testContent.equals("random words")) {
             contentType = "random words";
-            seed = (int) (Math.random() * 10000);
             String randomized = randomize(RANDOM_WORDS, seed);
             hardText = randomized;
             standardText = randomized.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
@@ -156,12 +156,24 @@ public class TypingTest {
     }
 
     public int getSeed() {
-        return -1; //stub
+        return seed;
     }
 
     // REQUIRES: seed < 10000
     // EFFECTS: sets the seed and recalculates the random words if that is the content type
     public void setSeed(int seed) {
+        this.seed = seed;
+        if (contentType.equals("random words")) {
+            String randomized = randomize(RANDOM_WORDS, seed);
+            hardText = randomized;
+            standardText = randomized.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
+        }
+        if (difficulty.equals("standard")) {
+            this.testContent = standardText;
+        } else {
+            this.testContent = hardText;
+        }
+        accuracy = -1;
     }
 
     // REQUIRES: userInput != null
