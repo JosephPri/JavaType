@@ -54,4 +54,14 @@ public class TypingTestHistory {
 
         return totalAccuracy / history.size();
     }
+
+    @Override
+    // EFFECTS: returns history as a JSONObject
+    public JSONObject toJson() {
+    }
+
+    // EFFECTS: returns tests in this history as a JSON array
+    private JSONArray testsToJson() {
+
+    }
 }
