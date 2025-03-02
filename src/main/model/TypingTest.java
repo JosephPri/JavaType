@@ -13,7 +13,7 @@ public class TypingTest {
     private String standardText;                    // modified given testContent without capitalization or punctuation
     private String hardText;                        // unmodified given testContent
 
-    private String contentType;                     // stores type of test content ("random words"/"cpsc210 syllabus"/"custom")
+    private String contentType;                     // type of test content ("random words"/"cpsc210 syllabus"/"custom")
 
     private static final String SHORTENED_SYLLABUS = "Design, development, and analysis of robust software "
                                                  + "components. Topics such as software design, computational "
