@@ -3,8 +3,12 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 // represents a history of typing tests
-public class TypingTestHistory {
+public class TypingTestHistory implements Writable {
     List<TypingTest> history; // ArrayList to store typing test objects
 
     // MODIFIES: this
@@ -58,10 +62,18 @@ public class TypingTestHistory {
     @Override
     // EFFECTS: returns history as a JSONObject
     public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("history", testsToJson());
+        return json;
     }
 
     // EFFECTS: returns tests in this history as a JSON array
     private JSONArray testsToJson() {
+        JSONArray jsonArray = new JSONArray();
 
+        for (TypingTest test : history) {
+            jsonArray.put(test.toJson());
+        }
+        return jsonArray;
     }
 }
