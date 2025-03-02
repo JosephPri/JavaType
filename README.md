@@ -14,11 +14,13 @@ I would like to design a typing test application in Java. It will be able to cal
 - As a user, I want to be able to add a test to my typing test history
 - As a user, I want to be able to see my overall average WPM and accuracy for my test history
 - As a user, I want to be able to view each of my previous tests
-- As a user, I want to be able to have the option to save my test history, when I select the quit option from the application menu
+- As a user, I want to be able to have the option to save my test history, before I select the quit option from the application menu
 - As a user, I want to be able to have the option to load my test history, when I start the application
 
 ## Citations
 - https://github.students.cs.ubc.ca/CPSC210/TellerApp - Followed basic UI code format
 - https://stackoverflow.com/questions/18830813/how-can-i-remove-punctuation-from-input-text-in-java - How to remove punctuation from a String
 - https://www.w3schools.com/java/java_howto_random_number.asp How to generate a random number
+- https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git - Followed basic persistence code format
+- https://www.digitalocean.com/community/tutorials/java-random - how to generate random number using seed
 
