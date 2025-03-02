@@ -24,6 +24,7 @@ public class TypingTestTest {
         assertEquals(100, standardTypingTest.getAccuracy());
         assertEquals(4, standardTypingTest.getWPM());
         assertEquals("custom", standardTypingTest.getContentType());
+        assertTrue(standardTypingTest.getSeed() <= 10000);
 
         assertEquals("hard", hardTypingTest.getDifficulty());
         assertEquals(60, hardTypingTest.getDuration());
@@ -32,6 +33,7 @@ public class TypingTestTest {
         assertEquals(50, hardTypingTest.getAccuracy());
         assertEquals(4, hardTypingTest.getWPM());
         assertEquals("custom", hardTypingTest.getContentType());
+        assertTrue(standardTypingTest.getSeed() <= 10000);
     }
 
     @Test
@@ -124,7 +126,22 @@ public class TypingTestTest {
         standardTypingTest.setContentType("random words");
         assertEquals("random words", standardTypingTest.getContentType());
     }
-    
+
+    @Test
+    void testSetSeed() {
+        standardTypingTest.setContentType("random words");
+        String before = standardTypingTest.getTestContent();
+        standardTypingTest.setSeed(50);
+        String after = standardTypingTest.getTestContent();
+        assertNotEquals(before, after);
+
+        standardTypingTest.setContentType("random words");
+        hardTypingTest.setContentType("random words");
+        standardTypingTest.setSeed(50);
+        hardTypingTest.setSeed(50);
+        assertTrue(hardTypingTest.getTestContent().toLowerCase().equals(standardTypingTest.getTestContent()));
+    }
+
     @Test
     void testNoWordsTyped() {
         standardTypingTest.setUserInput("");
