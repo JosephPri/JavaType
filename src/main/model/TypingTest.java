@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Random;
+
 // Represents a typing test having a difficulty, duration, test content, user input
 public class TypingTest {
     private String difficulty;                      // the difficulty of the test ("standard"/"hard")
@@ -14,6 +16,8 @@ public class TypingTest {
     private String hardText;                        // unmodified given testContent
 
     private String contentType;                     // type of test content ("random words"/"cpsc210 syllabus"/"custom")
+
+    private int seed;                            // randomly generated seed used for generating random word list
 
     private static final String SHORTENED_SYLLABUS = "Design, development, and analysis of robust software "
                                                  + "components. Topics such as software design, computational "
@@ -112,7 +116,8 @@ public class TypingTest {
             standardText = SHORTENED_SYLLABUS.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
         } else if (testContent.equals("random words")) {
             contentType = "random words";
-            String randomized = randomize(RANDOM_WORDS);
+            seed = (int) (Math.random() * 10000);
+            String randomized = randomize(RANDOM_WORDS, seed);
             hardText = randomized;
             standardText = randomized.replaceAll("[^a-zA-Z0-9 ]", "").toLowerCase();
         } else {
@@ -215,17 +220,18 @@ public class TypingTest {
     }
 
     // REQUIRES: input is not an empty list
-    // EFFECTS: returns input list containing words separated by space with randomized order
-    private static String randomize(String input) {
+    // EFFECTS: returns input list containing words separated by space with randomized order using seed
+    private static String randomize(String input, int seed) {
         String[] words = input.split("\\s");
 
         String newString = "";
 
+        Random generator = new Random(seed);
         for (int i = 0; i < words.length; i++) {
-            int randomNum = (int)(Math.random() * (words.length));
-            newString += (String)words[randomNum] + " ";
+            int randomNum = generator.nextInt(words.length);
+            newString += words[randomNum] + " ";
         }
 
-        return newString;
+        return newString.trim();
     }
 }
