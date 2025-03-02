@@ -1,9 +1,13 @@
 package model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Random;
+import org.json.JSONObject;
+import persistence.Writable;
 
 // Represents a typing test having a difficulty, duration, test content, user input
-public class TypingTest {
+public class TypingTest implements Writable {
     private String difficulty;                      // the difficulty of the test ("standard"/"hard")
     private int duration;                           // how long the test will last in seconds
     private String testContent;                     // the text the user needs to type
@@ -263,5 +267,18 @@ public class TypingTest {
     // EFFECTS: returns test as a JSON object
     @Override
     public JSONObject toJson() {        
+        JSONObject json = new JSONObject();
+        json.put("difficulty", difficulty);
+        json.put("duration", duration);
+
+        if (contentType.equals("cpsc210 syllabus") | contentType.equals("random words")) {
+            json.put("testContent", contentType);
+        } else {
+            json.put("testContent", hardText);
+        }
+        json.put("userInput", userInput);
+        json.put("seed", seed);
+        
+        return json;
     }
 }
