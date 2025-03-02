@@ -4,7 +4,6 @@ import model.TypingTest;
 import model.TypingTestHistory;
 
 import java.util.Scanner;
-import java.util.concurrent.*;
 import java.util.List;
 
 // Typing test application
@@ -175,5 +174,9 @@ public class TypingTestApp {
         System.out.println("Accuracy: " + test.getAccuracy() + "%");
 
         history.addTest(test);
+    }
+
+    // EFFECTS: starts the countdown timer
+    private void startCountdown(int duration) {
     }
 }
