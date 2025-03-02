@@ -17,7 +17,7 @@ public class TypingTest {
 
     private String contentType;                     // type of test content ("random words"/"cpsc210 syllabus"/"custom")
 
-    private int seed;                            // randomly generated seed used for generating random word list
+    private int seed;                            // randomly generated seed for generating random word list
 
     private static final String SHORTENED_SYLLABUS = "Design, development, and analysis of robust software "
                                                  + "components. Topics such as software design, computational "
