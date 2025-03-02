@@ -2,14 +2,21 @@ package ui;
 
 import model.TypingTest;
 import model.TypingTestHistory;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import java.util.Scanner;
 import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 // Typing test application
 public class TypingTestApp {
-    private TypingTestHistory history;  // list of previous typing tests
-    private Scanner input;              // general input given by user 
+    private static final String JSON_STORE = "./data/typingTestHistory.json";   // default file storage location
+    private TypingTestHistory history;                                          // list of previous typing tests
+    private Scanner input;                                                      // general input given by user 
+    private JsonWriter jsonWriter;                                              // object to write json files
+    private JsonReader jsonReader;                                              // object to read json files
 
     // EFFECTS: runs the typing test application
     public TypingTestApp() {
@@ -46,6 +53,10 @@ public class TypingTestApp {
             createNewTest();
         } else if (command.equals("h")) {
             openHistory();
+        } else if (command.equals("l")) {
+            loadHistory();
+        }else if (command.equals("s")) {
+            saveHistory();
         } else {
             System.out.println("Selection not valid");
         }
@@ -56,7 +67,8 @@ public class TypingTestApp {
     private void init() {
         input = new Scanner(System.in);
         input.useDelimiter("\r?\n|\r");
-
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         history = new TypingTestHistory();
     }
 
@@ -65,6 +77,8 @@ public class TypingTestApp {
         System.out.println("\nSelect from:");
         System.out.println("\tt -> take a new test");
         System.out.println("\th -> look at test history");
+        System.out.println("\tl -> load test history from file");
+        System.out.println("\ts -> save test history to file");
         System.out.println("\tq -> quit");
     }
     
@@ -199,5 +213,16 @@ public class TypingTestApp {
             }
         }
         System.out.println("\n\nTime's up! Press ENTER to see your results.");
+    }
+
+    // EFFECTS: saves history to file
+    private void loadHistory() {
+
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads history from file
+    private void saveHistory() {
+
     }
 }
