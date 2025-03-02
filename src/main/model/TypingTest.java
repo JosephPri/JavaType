@@ -155,6 +155,15 @@ public class TypingTest {
         this.contentType = contentType;
     }
 
+    public int getSeed() {
+        return -1; //stub
+    }
+
+    // REQUIRES: seed < 10000
+    // EFFECTS: sets the seed and recalculates the random words if that is the content type
+    public void setSeed(int seed) {
+    }
+
     // REQUIRES: userInput != null
     // MODIFIES: this
     // EFFECTS: returns wpm;
