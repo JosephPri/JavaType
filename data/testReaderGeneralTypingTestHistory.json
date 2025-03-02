@@ -1,0 +1,25 @@
+{
+    "history": [
+        {
+            "difficulty": "standard",
+            "duration": "60",
+            "testContent": "random words",
+            "userInput": "blah blah",
+            "seed": "50"
+        },
+        {
+            "difficulty": "hard",
+            "duration": "45",
+            "testContent": "cpsc210 syllabus",
+            "userInput": "Design, development",
+            "seed": "30"
+        },
+        {
+            "difficulty": "standard",
+            "duration": "30",
+            "testContent": "This is a custom test.",
+            "userInput": "this is a",
+            "seed": "20"
+        }
+    ]
+}
