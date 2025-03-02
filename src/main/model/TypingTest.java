@@ -259,4 +259,9 @@ public class TypingTest {
 
         return newString.trim();
     }
+
+    // EFFECTS: returns test as a JSON object
+    @Override
+    public JSONObject toJson() {        
+    }
 }
