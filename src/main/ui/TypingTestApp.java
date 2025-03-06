@@ -91,7 +91,7 @@ public class TypingTestApp {
         int duration = processCommand1Int();
         
         System.out.print("Enter test content type (random words/cpsc210 syllabus/custom): ");
-        String testContent = input.next();
+        String testContent = input.next().toLowerCase();
         while (!testContent.equals("random words") 
                 && !testContent.equals("cpsc210 syllabus") 
                 && !testContent.equals("custom")) {
