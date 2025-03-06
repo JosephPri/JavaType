@@ -28,7 +28,7 @@ class JsonWriterTest extends JsonTest {
     }
 
     @Test
-    void testWriterEmptyWorkroom() {
+    void testWriterEmptyTypingTestHistory() {
         try {
             TypingTestHistory history = new TypingTestHistory();
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyTypingTestHistory.json");
@@ -47,7 +47,7 @@ class JsonWriterTest extends JsonTest {
     }
 
     @Test
-    void testWriterGeneralWorkroom() {
+    void testWriterGeneralTypingTestHistory() {
         try {
             TypingTestHistory history = new TypingTestHistory();
             TypingTest test1 = new TypingTest("standard", 60, "random words", "blah blah");

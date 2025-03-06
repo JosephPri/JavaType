@@ -25,7 +25,7 @@ class JsonReaderTest extends JsonTest {
     }
 
     @Test
-    void testReaderEmptyWorkRoom() {
+    void testReaderEmptyTypingTestHistory() {
         JsonReader reader = new JsonReader("./data/testReaderEmptyTypingTestHistory.json");
         try {
             TypingTestHistory history = reader.read();
@@ -38,7 +38,7 @@ class JsonReaderTest extends JsonTest {
     }
 
     @Test
-    void testReaderGeneralWorkRoom() {
+    void testReaderGeneralTypingTestHistory() {
         JsonReader reader = new JsonReader("./data/testReaderGeneralTypingTestHistory.json");
         try {
             TypingTestHistory history = reader.read();
