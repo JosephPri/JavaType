@@ -2,8 +2,9 @@ package ui;
 
 import java.io.FileNotFoundException;
 
+// Main class
 public class Main {
-    // runs console instance of typing test app
+    // EFFECTS: runs console instance of typing test app
     public static void main(String[] args) throws Exception {
         try {
             new TypingTestApp();
