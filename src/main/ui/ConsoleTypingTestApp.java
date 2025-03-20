@@ -11,8 +11,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-// Typing test application
-public class TypingTestApp {
+// Console based typing test application
+public class ConsoleTypingTestApp {
     private static final String JSON_STORE = "./data/typingTestHistory.json";   // default file storage location
     private TypingTestHistory history;                                          // list of previous typing tests
     private Scanner input;                                                      // general input given by user 
@@ -20,7 +20,7 @@ public class TypingTestApp {
     private JsonReader jsonReader;                                              // object to read json files
 
     // EFFECTS: runs the typing test application
-    public TypingTestApp() throws FileNotFoundException {
+    public ConsoleTypingTestApp() throws FileNotFoundException {
         runTypingTestApp();
     }
     
