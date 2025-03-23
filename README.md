@@ -23,4 +23,6 @@ I would like to design a typing test application in Java. It will be able to cal
 - https://www.w3schools.com/java/java_howto_random_number.asp How to generate a random number
 - https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git - Followed basic persistence code format
 - https://www.digitalocean.com/community/tutorials/java-random - how to generate random number using seed
+- https://stackoverflow.com/questions/20541230/allow-only-numbers-in-jtextfield - how to only accept numbers in JTextField
+- https://stackoverflow.com/questions/7204896/how-to-implement-a-count-down-timer-in-swing - how to run swing timer
 
