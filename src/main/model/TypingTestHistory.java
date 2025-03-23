@@ -59,6 +59,16 @@ public class TypingTestHistory implements Writable {
         return totalAccuracy / history.size();
     }
 
+    // EFFECTS: returns list of tests with minimum specified words per minute
+    public List<TypingTest> getTestsWPM(int min) {
+        return null; //stub
+    }
+
+    // EFFECTS: returns list of tests with minimum specified accuracy
+    public List<TypingTest> getTestsAccuracy(int min) {
+        return null; //stub
+    }
+
     @Override
     // EFFECTS: returns history as a JSONObject
     public JSONObject toJson() {
