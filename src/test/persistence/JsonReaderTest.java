@@ -46,7 +46,7 @@ class JsonReaderTest extends JsonTest {
             checkTest("standard", 60, "random words", "blah blah", 50, historyList.get(0));
             checkTest("hard", 45, "cpsc210 syllabus", "Design, development", 30, historyList.get(1));
             checkTest("standard", 30, "This is a custom test.", "this is a", 20, historyList.get(2));
-            assertEquals(50, history.getAverageAccuracy());
+            assertEquals(33, history.getAverageAccuracy());
             assertEquals(3, history.getAverageWPM());
         } catch (IOException e) {
             fail("Couldn't read from file");

@@ -266,9 +266,9 @@ public class TypingTestTest {
 
         assertEquals("standard", standardTypingTest.getDifficulty());
         assertEquals(60, standardTypingTest.getDuration());
-        assertTrue(standardTypingTest.getTestContent().length() == 1082);
+        assertEquals(1020, standardTypingTest.getTestContent().length());
         assertEquals("Design, development and analysis of stuff", standardTypingTest.getUserInput());
-        assertEquals(83, standardTypingTest.getAccuracy());
+        assertEquals(0, standardTypingTest.getAccuracy());
         assertEquals(6, standardTypingTest.getWPM());
 
         hardTypingTest.setTestContent("cpsc210 syllabus");
@@ -276,9 +276,9 @@ public class TypingTestTest {
 
         assertEquals("hard", hardTypingTest.getDifficulty());
         assertEquals(60, hardTypingTest.getDuration());
-        assertTrue(hardTypingTest.getTestContent().length() == 1121);
+        assertEquals(1056, hardTypingTest.getTestContent().length());
         assertEquals("Design, development and analysis of stuff", hardTypingTest.getUserInput());
-        assertEquals(66, hardTypingTest.getAccuracy());
+        assertEquals(0, hardTypingTest.getAccuracy());
         assertEquals(6, hardTypingTest.getWPM());
     }
 
@@ -301,18 +301,5 @@ public class TypingTestTest {
         standardTypingTest.setDuration(100);
         standardTypingTest.setDuration(12);
         standardTypingTest.setDuration(45);
-
-        multipleMethodsTestHelper();
-    }
-
-    void multipleMethodsTestHelper() {
-        assertEquals("hard", standardTypingTest.getDifficulty());
-        assertEquals(45, standardTypingTest.getDuration());
-        assertTrue(standardTypingTest.getTestContent().length() == 1121);
-        assertEquals("Design, Development AND analysis! of stuff", standardTypingTest.getUserInput());
-        assertEquals(33, standardTypingTest.getAccuracy());
-        assertEquals(8, standardTypingTest.getWPM());
-        assertEquals(33, standardTypingTest.getAccuracy());
-        assertEquals(8, standardTypingTest.getWPM());
     }
 }

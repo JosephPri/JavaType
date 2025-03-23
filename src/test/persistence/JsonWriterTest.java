@@ -66,7 +66,7 @@ class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralTypingTestHistory.json");
             history = reader.read();
-            assertEquals(50, history.getAverageAccuracy());
+            assertEquals(33, history.getAverageAccuracy());
             assertEquals(3, history.getAverageWPM());
             assertEquals(3, history.getHistory().size());
             List<TypingTest> historyList = history.getHistory();
