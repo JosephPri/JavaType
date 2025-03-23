@@ -85,4 +85,9 @@ public class SwingTypingTestApp extends JFrame {
     public TypingTestHistory getHistory() {
         return history;
     }
+
+    // EFFECTS: sets the TypingTestHistory object controlled by this UI
+    public void setHistory(TypingTestHistory history) {
+    
+    }
 }
