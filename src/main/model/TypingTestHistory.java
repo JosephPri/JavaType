@@ -61,12 +61,24 @@ public class TypingTestHistory implements Writable {
 
     // EFFECTS: returns list of tests with minimum specified words per minute
     public List<TypingTest> getTestsWPM(int min) {
-        return null; //stub
+        List<TypingTest> newList = new ArrayList<TypingTest>();
+        for (TypingTest test : history) {
+            if (test.getWPM() >= min) {
+                newList.add(test);
+            }
+        }
+        return newList;
     }
 
     // EFFECTS: returns list of tests with minimum specified accuracy
     public List<TypingTest> getTestsAccuracy(int min) {
-        return null; //stub
+        List<TypingTest> newList = new ArrayList<TypingTest>();
+        for (TypingTest test : history) {
+            if (test.getAccuracy() >= min) {
+                newList.add(test);
+            }
+        }
+        return newList;
     }
 
     @Override
