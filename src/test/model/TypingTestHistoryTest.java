@@ -86,4 +86,31 @@ public class TypingTestHistoryTest {
 
         assertEquals(66, testHistory.getAverageAccuracy());
     }
+
+    @Test 
+    void testGetTestsAccuracy() {
+        assertEquals(testList, testHistory.getTestsAccuracy(100));
+
+        testHistory.addTest(standardTypingTest2);
+        testHistory.addTest(hardTypingTest2);
+        assertEquals(testList, testHistory.getTestsAccuracy(100));
+
+        testList.add(standardTypingTest2);
+        testList.add(hardTypingTest2);
+
+        assertEquals(testList, testHistory.getTestsAccuracy(50));
+    }
+
+    @Test
+    void testGetTestsWPM() {
+        assertEquals(testList, testHistory.getTestsWPM(2));
+
+        testHistory.addTest(hardTypingTest1);
+        testHistory.addTest(standardTypingTest1);
+        assertEquals(testList, testHistory.getTestsWPM(100));
+
+        testList.add(hardTypingTest1);
+        testList.add(standardTypingTest1);
+        assertEquals(testList, testHistory.getTestsWPM(2));
+    }
 }
