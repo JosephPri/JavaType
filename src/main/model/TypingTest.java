@@ -21,8 +21,7 @@ public class TypingTest implements Writable {
 
     private int seed;                            // randomly generated seed for generating random word list
 
-    private static final String SHORTENED_SYLLABUS = "Design, development, and analysis of robust software "
-                                                 + "components. Topics such as software design, computational "
+    private static final String SHORTENED_SYLLABUS = "Topics such as software design, computational "
                                                  + "models, data structures, debugging, and testing. "
                                                  + "Prerequisite: One of CPSC 107, CPSC 110. "
                                                  + "Lectures: There are 3 hours of lecture each week. The course "
