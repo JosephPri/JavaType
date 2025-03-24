@@ -25,4 +25,12 @@ I would like to design a typing test application in Java. It will be able to cal
 - https://www.digitalocean.com/community/tutorials/java-random - how to generate random number using seed
 - https://stackoverflow.com/questions/20541230/allow-only-numbers-in-jtextfield - how to only accept numbers in JTextField
 - https://stackoverflow.com/questions/7204896/how-to-implement-a-count-down-timer-in-swing - how to run swing timer
+- https://www.flaticon.com/free-icon/keyboard_2263611?term=keyboard&page=1&position=1&origin=search&related_id=2263611 - keyboard icon
+- https://www.flaticon.com/free-icon/clock_992700 - clock icon
 
+## Instructions for End User
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by filtering your typing tests by minimum words per minute.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by filtering your typing tests by minimum accuracy.
+- You can locate my visual component by navigating to the "Home" tab to see the animated clock next to time remaining.
+- You can save the state of my application by clicking the "Save" button on the home screen.
+- You can reload the state of my application by clicking the "Load" button on the home scren,
