@@ -190,6 +190,7 @@ public class HomeTab extends Tab {
         refArea.setText(test.getTestContent());
         inputArea.setEnabled(true);
         inputArea.setText("");
+        inputArea.requestFocus();
         startButton.setEnabled(false);
         runTest(test.getDuration(), countdown, test);
     }
