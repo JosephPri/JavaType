@@ -31,6 +31,6 @@ I would like to design a typing test application in Java. It will be able to cal
 ## Instructions for End User
 - You can generate the first required action related to the user story "adding multiple Xs to a Y" by filtering your typing tests by minimum words per minute.
 - You can generate the second required action related to the user story "adding multiple Xs to a Y" by filtering your typing tests by minimum accuracy.
-- You can locate my visual component by navigating to the "Home" tab to see the animated clock next to time remaining.
+- You can locate my visual component by navigating to the "Home" tab and pressing the "Start" button to see the animated clock next to time remaining.
 - You can save the state of my application by clicking the "Save" button on the home screen.
 - You can reload the state of my application by clicking the "Load" button on the home scren,

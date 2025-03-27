@@ -43,6 +43,7 @@ public class HomeTab extends Tab {
     private JTextArea inputArea;                                                // input test text area
 
     private JLabel countdown;                                                   // current amount of time left
+    private JLabel clockLabel;                                                // image of clock gif
 
     JButton startButton;                                                        // start button object
 
@@ -192,6 +193,7 @@ public class HomeTab extends Tab {
         inputArea.setText("");
         inputArea.requestFocus();
         startButton.setEnabled(false);
+        clockLabel.setVisible(true);
         runTest(test.getDuration(), countdown, test);
     }
 
@@ -200,9 +202,10 @@ public class HomeTab extends Tab {
     private void placeCountdown() {
         countdown = new JLabel("Time Remaining: 0", JLabel.RIGHT);
         this.add(countdown);
-        ImageIcon difficultyIcon = new ImageIcon("./data/clocktiny.gif");
-        JLabel imageLabel = new JLabel(difficultyIcon);
-        this.add(imageLabel);
+        ImageIcon clockIcon = new ImageIcon("./data/clocktiny.gif");
+        clockLabel = new JLabel(clockIcon);
+        clockLabel.setVisible(false);
+        this.add(clockLabel);
     }
 
     // EFFECTS: creates button to load typing test history
@@ -285,6 +288,7 @@ public class HomeTab extends Tab {
                     label.setText("Time Remaining: " + Long.toString(time / 1000));
                 } else {
                     ((Timer) e.getSource()).stop();
+                    clockLabel.setVisible(false);
                     inputArea.setEnabled(false);
                     startButton.setEnabled(true);
                     test.setUserInput(inputArea.getText());
