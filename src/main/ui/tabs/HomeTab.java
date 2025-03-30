@@ -43,11 +43,11 @@ public class HomeTab extends Tab {
     private JTextArea inputArea;                                                // input test text area
 
     private JLabel countdown;                                                   // current amount of time left
-    private JLabel clockLabel;                                                // image of clock gif
+    private JLabel clockLabel;                                                  // image of clock gif
 
-    JButton startButton;                                                        // start button object
+    private JButton startButton;                                                // start button object
 
-    TypingTestHistory history;                                                  // copy of UI's typing test history
+    private TypingTestHistory history;                                          // copy of UI's typing test history
 
     // EFFECTS: constructs a home tab for console with buttons to change test settings and start
     // MODIFIES: this
