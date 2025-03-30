@@ -34,3 +34,19 @@ I would like to design a typing test application in Java. It will be able to cal
 - You can locate my visual component by navigating to the "Home" tab and pressing the "Start" button to see the animated clock next to time remaining.
 - You can save the state of my application by clicking the "Save" button on the home screen.
 - You can reload the state of my application by clicking the "Load" button on the home scren.
+
+## Phase 4: Task 2
+Sun Mar 30 10:01:14 PDT 2025  
+Typing test added to history  
+Sun Mar 30 10:01:54 PDT 2025  
+Typing test added to history  
+Sun Mar 30 10:02:11 PDT 2025  
+Filtered tests for a minimum accuracy of 90  
+Sun Mar 30 10:02:11 PDT 2025  
+Filtered tests for a minimum WPM of 50  
+Sun Mar 30 10:02:50 PDT 2025  
+Typing test added to history  
+Sun Mar 30 10:03:02 PDT 2025  
+Filtered tests for a minimum accuracy of 100  
+Sun Mar 30 10:03:02 PDT 2025  
+Filtered tests for a minimum WPM of 70  
