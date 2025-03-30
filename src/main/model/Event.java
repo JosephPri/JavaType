@@ -6,9 +6,9 @@ import java.util.Date;
 
 //Represents an typing test app event.
 public class Event {
-    private static final int HASH_CONSTANT = 13;
-    private Date dateLogged;
-    private String description;
+    private static final int HASH_CONSTANT = 13;    // constant for hash code generation
+    private Date dateLogged;                        // date the event was occured at
+    private String description;                     // description of the event that occured
 	
     // MODIFIES: this
     // EFFECTS: Creates an event with the given description
