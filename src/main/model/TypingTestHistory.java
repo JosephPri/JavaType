@@ -22,6 +22,7 @@ public class TypingTestHistory implements Writable {
     // EFFECTS: adds a typing test to the history
     public void addTest(TypingTest test) {
         history.add(test);
+        EventLog.getInstance().logEvent(new Event("Typing test added to history"));
     }
 
     // EFFECTS: returns the history of typing tests
@@ -67,6 +68,7 @@ public class TypingTestHistory implements Writable {
                 newList.add(test);
             }
         }
+        EventLog.getInstance().logEvent(new Event("Filtered tests for a minimum WPM of " + min));
         return newList;
     }
 
@@ -78,6 +80,7 @@ public class TypingTestHistory implements Writable {
                 newList.add(test);
             }
         }
+        EventLog.getInstance().logEvent(new Event("Filtered tests for a minimum accuracy of " + min));
         return newList;
     }
 
