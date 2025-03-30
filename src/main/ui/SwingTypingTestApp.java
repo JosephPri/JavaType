@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.TypingTest;
 import model.TypingTestHistory;
 import persistence.JsonReader;
@@ -15,9 +17,10 @@ import java.io.IOException;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.event.*;
 
 // Swing based typing test application
-public class SwingTypingTestApp extends JFrame {
+public class SwingTypingTestApp extends JFrame implements WindowListener {
     private static final String JSON_STORE = "./data/typingTestHistory.json"; // default file storage location
     private TypingTestHistory history; // list of previous typing tests
     private Scanner input; // general input given by user
@@ -89,5 +92,44 @@ public class SwingTypingTestApp extends JFrame {
     // EFFECTS: sets the TypingTestHistory object controlled by this UI
     public void setHistory(TypingTestHistory history) {
         this.history = history;
+    }
+
+    @Override
+    // EFFECTS: prints event log when window is closing
+    public void windowClosing(WindowEvent e) {
+        for (Event event : EventLog.getInstance()) {
+            System.out.println(event.toString());
+        }
+    }
+
+    @Override
+    // EFFECTS: does nothing when window closes
+    public void windowClosed(WindowEvent e) {
+    }
+
+    @Override
+    // EFFECTS: does nothing when window is activated
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    // EFFECTS: does nothing when the window is opened
+    public void windowOpened(WindowEvent e) {
+    }
+
+    @Override
+    // EFFECTS: does nothing when the window is iconified
+    public void windowIconified(WindowEvent e) {
+    }
+
+    @Override
+    // EFFECTS: does nothing when the window is deiconified
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    @Override
+    // EFFECTS: does nothing when the window is deactivated
+    public void windowDeactivated(WindowEvent e) {
     }
 }
