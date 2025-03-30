@@ -4,41 +4,32 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-/**
- * Represents an typing test app event.
- */
+//Represents an typing test app event.
 public class Event {
     private static final int HASH_CONSTANT = 13;
     private Date dateLogged;
     private String description;
 	
-	/**
-	 * Creates an event with the given description
-	 * and the current date/time stamp.
-	 * @param description  a description of the event
-	 */
+    // MODIFIES: this
+    // EFFECTS: Creates an event with the given description
+    //          and the current date/time stamp
     public Event(String description) {
         dateLogged = Calendar.getInstance().getTime();
         this.description = description;
     }
 	
-	/**
-	 * Gets the date of this event (includes time).
-	 * @return  the date of the event
-	 */
+    // EFFECTS: returns the date of this event
     public Date getDate() {
         return dateLogged;
     }
 	
-	/**
-	 * Gets the description of this event.
-	 * @return  the description of the event
-	 */
+    // EFFECTS: returns the description of this event
     public String getDescription() {
         return description;
     }
 	
     @Override
+    // EFFECTS: overrides equals() so that only events with the same date and description equal
 	public boolean equals(Object other) {
         if (other == null) {
             return false;
@@ -54,11 +45,13 @@ public class Event {
     }
 	
     @Override
+    // EFFECTS: ovverides default hashcode to be 13 times the hashcode of the date and description
 	public int hashCode() {
         return (HASH_CONSTANT * dateLogged.hashCode() + description.hashCode());
     }
 	
     @Override
+    // EFFECTS: overrides default string representation to be the date followed by a new line and description
 	public String toString() {
         return dateLogged.toString() + "\n" + description;
     }
