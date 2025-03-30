@@ -69,6 +69,7 @@ public class SwingTypingTestApp extends JFrame implements WindowListener {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         history = new TypingTestHistory();
+        addWindowListener(this);
     }
 
     // MODIFIES: this
