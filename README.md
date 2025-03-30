@@ -50,3 +50,6 @@ Sun Mar 30 10:03:02 PDT 2025
 Filtered tests for a minimum accuracy of 100  
 Sun Mar 30 10:03:02 PDT 2025  
 Filtered tests for a minimum WPM of 70  
+
+## Phase 4: Task 3
+Looking at my UML diagram, there is one main issue I would change. I would remove the all redundant associations to TypingTestHistory especially between each tab class as they add a lot of unncessary complexity to my diagram. Ideally, only SwingTypingTestApp and ConsoleTypingTestApp should have associations to TypingTestHistory. Currently these associations are present so that I dont have to call getController.getHistory() everytime I need to access history outside of SwingTypingTestApp. However, this could also be improved by simply using getController.getHistory() and/or adding more test history related getter/setter methods to SwingTypingTestApp.
