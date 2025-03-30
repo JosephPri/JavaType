@@ -36,7 +36,6 @@ public class SwingTypingTestApp extends JFrame implements WindowListener {
     // EFFECTS: runs the typing test application GUI
     public SwingTypingTestApp() throws FileNotFoundException {
         super("Typing Test App");
-        setLocationRelativeTo(null);
         init();
         swingSetup();
     }
@@ -58,6 +57,7 @@ public class SwingTypingTestApp extends JFrame implements WindowListener {
                 }
             }
         });
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
