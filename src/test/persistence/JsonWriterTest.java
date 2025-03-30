@@ -1,4 +1,4 @@
-package test.persistence;
+package persistence;
 
 import model.TypingTest;
 import model.TypingTestHistory;
