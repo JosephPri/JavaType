@@ -1,10 +1,4 @@
-# My Personal Project 
-
-## JavaType - *Typing speed and accuracy testing app*
-
-**Proposal Paragraph:**
-I would like to design a typing test application in Java. It will be able to calculate your WPM (words per minute), accuracy rate, save previous tests, have different difficulties. It will have a simple and sleek user interface so that anyone wanting to improve their typing speed (ex. students) will be able to use it. I'm interested in this project because I enjoy building mechanical keyboards and also wish to improve my typing abilities.
-
+# JavaType - *Typing speed and accuracy testing app*
 ## UserStories
 - As a user, I want to be able to take a typing test and specify the difficulty, duration, and test content type
 - As a user, I want to be able to see a summary of my average WPM, and accuracy after taking a test
@@ -34,22 +28,3 @@ I would like to design a typing test application in Java. It will be able to cal
 - You can locate my visual component by navigating to the "Home" tab and pressing the "Start" button to see the animated clock next to time remaining.
 - You can save the state of my application by clicking the "Save" button on the home screen.
 - You can reload the state of my application by clicking the "Load" button on the home scren.
-
-## Phase 4: Task 2
-Sun Mar 30 10:01:14 PDT 2025  
-Typing test added to history  
-Sun Mar 30 10:01:54 PDT 2025  
-Typing test added to history  
-Sun Mar 30 10:02:11 PDT 2025  
-Filtered tests for a minimum accuracy of 90  
-Sun Mar 30 10:02:11 PDT 2025  
-Filtered tests for a minimum WPM of 50  
-Sun Mar 30 10:02:50 PDT 2025  
-Typing test added to history  
-Sun Mar 30 10:03:02 PDT 2025  
-Filtered tests for a minimum accuracy of 100  
-Sun Mar 30 10:03:02 PDT 2025  
-Filtered tests for a minimum WPM of 70  
-
-## Phase 4: Task 3
-Looking at my UML diagram, there is one main issue I would change. I would remove the all redundant associations to TypingTestHistory especially between each tab class as they add a lot of unncessary complexity to my diagram. Ideally, only SwingTypingTestApp and ConsoleTypingTestApp should have associations to TypingTestHistory. Currently these associations are present so that I dont have to call getController.getHistory() everytime I need to access history outside of SwingTypingTestApp. However, this could also be improved by simply using getController.getHistory() and/or adding more test history related getter/setter methods to SwingTypingTestApp.
